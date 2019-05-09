@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XmlRoot" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="XmlRoot" msdata:IsDataSet="false" msdata:Locale="en-US">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Summary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="WinRiver_II_Section_by_Section_Summary" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Site_Name" type="xs:string" minOccurs="0" />
+                    <xs:element name="Printed_Date" type="xs:string" minOccurs="0" />
+                    <xs:element name="Station_No" type="xs:string" minOccurs="0" />
+                    <xs:element name="Air_Temp" type="xs:string" nillable="true" minOccurs="0" />
+                    <xs:element name="Water_Temp" type="xs:string" nillable="true" minOccurs="0" />
+                    <xs:element name="River_Name" type="xs:string" minOccurs="0" />
+                    <xs:element name="Location" type="xs:string" minOccurs="0" />
+                    <xs:element name="Date" type="xs:string" minOccurs="0" />
+                    <xs:element name="Start_End_Time" type="xs:string" minOccurs="0" />
+                    <xs:element name="Party" type="xs:string" minOccurs="0" />
+                    <xs:element name="Software_Ver" type="xs:string" minOccurs="0" />
+                    <xs:element name="Units_of_Measure" type="xs:string" minOccurs="0" />
+                    <xs:element name="Meas_No" type="xs:integer" minOccurs="0" />
+                    <xs:element name="No_Stations" type="xs:integer" minOccurs="0" />
+                    <xs:element name="Q_Method" type="xs:string" minOccurs="0" />
+                    <xs:element name="Vel_Method" type="xs:string" minOccurs="0" />
+                    <xs:element name="Reference" type="xs:string" minOccurs="0" />
+                    <xs:element name="Power_Exp" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Left_Coeff" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Right_Coeff" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Duration" type="xs:string" minOccurs="0" />
+                    <xs:element name="Instrument" type="xs:string" minOccurs="0" />
+                    <xs:element name="Firmware_Version" type="xs:string" minOccurs="0" />
+                    <xs:element name="Water_Mode" type="xs:string" minOccurs="0" />
+                    <xs:element name="ADCP_Depth" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Blank" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Num_Cells" type="xs:string" minOccurs="0" />
+                    <xs:element name="Cell_Size" type="xs:string" minOccurs="0" />
+                    <xs:element name="Total_Q" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Meas_Area" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_Vel" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Meas_Width" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Max_Vel" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Max_Depth" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Quality_Control" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Meas_Angle" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Stage" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Rated_Q" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Begin_Shore" type="xs:string" minOccurs="0" />
+                    <xs:element name="ADCP_Serial_No" type="xs:string" minOccurs="0" />
+                    <xs:element name="RawFileName" type="xs:string" minOccurs="0" />
+                    <xs:element name="ConfigFileName" type="xs:string" minOccurs="0" />
+                    <xs:element name="Software_Version" type="xs:string" minOccurs="0" />
+                    <xs:element name="System_Frequency" type="xs:string" minOccurs="0" />
+                    <xs:element name="Comments" type="xs:string" minOccurs="0" />
+                    <xs:element name="FlowType" type="xs:string" minOccurs="0" />
+                    <xs:element name="FootNote" type="xs:string" minOccurs="0" />
+                    <xs:element name="ContourFile" type="xs:string" minOccurs="0" />
+                    <xs:element name="Total_Width" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Total_Area" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Total_Slush_Area" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="TotalPerc__Slush" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Total_Start_T" type="xs:string" minOccurs="0" />
+                    <xs:element name="Mean_Depth" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_CV" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_Avg_V" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_Dir_V" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_ADCP_Depth" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_Solid_Ice_Thickness" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_WS_Btm_Of_Ice" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_WS_Btm_Of_Slush" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_Meas_T" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="Mean_Ang_Cf" type="xs:decimal" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Station" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Stn_Q" type="xs:decimal" minOccurs="0" msdata:Ordinal="0" />
+                    <xs:element name="Percent_Tot" type="xs:decimal" minOccurs="0" msdata:Ordinal="1" />
+                    <xs:element name="Start_T" type="xs:string" minOccurs="0" msdata:Ordinal="2" />
+                    <xs:element name="Meas_T" type="xs:decimal" minOccurs="0" msdata:Ordinal="3" />
+                    <xs:element name="Percent_Good" type="xs:decimal" minOccurs="0" msdata:Ordinal="4" />
+                    <xs:element name="Avg_V" type="xs:decimal" minOccurs="0" msdata:Ordinal="5" />
+                    <xs:element name="CV" type="xs:decimal" minOccurs="0" msdata:Ordinal="6" />
+                    <xs:element name="Dir_V" type="xs:decimal" minOccurs="0" msdata:Ordinal="7" />
+                    <xs:element name="Dist" type="xs:decimal" minOccurs="0" msdata:Ordinal="8" />
+                    <xs:element name="Depth" type="xs:decimal" minOccurs="0" msdata:Ordinal="9" />
+                    <xs:element name="Width" type="xs:decimal" minOccurs="0" msdata:Ordinal="10" />
+                    <xs:element name="Area" type="xs:decimal" minOccurs="0" msdata:Ordinal="11" />
+                    <xs:element name="Ang_Cf" type="xs:decimal" minOccurs="0" msdata:Ordinal="12" />
+                    <xs:element name="ADCP_Depth" type="xs:decimal" minOccurs="0" msdata:Ordinal="13" />
+                    <xs:element name="WS_Btm_Of_Slush" type="xs:decimal" minOccurs="0" msdata:Ordinal="14" />
+                    <xs:element name="WS_Btm_Of_Ice" type="xs:decimal" minOccurs="0" msdata:Ordinal="15" />
+                    <xs:element name="Solid_Ice_Thickness" type="xs:decimal" minOccurs="0" msdata:Ordinal="16" />
+                    <xs:element name="Slush_Area" type="xs:decimal" minOccurs="0" msdata:Ordinal="17" />
+                    <xs:element name="Perc_Slush" type="xs:decimal" minOccurs="0" msdata:Ordinal="18" />
+                  </xs:sequence>
+                  <xs:attribute name="id" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
