@@ -1,5 +1,4 @@
-﻿using System;
-using FieldDataPluginFramework.Context;
+﻿using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.ChannelMeasurements;
 using FieldDataPluginFramework.DataModel.DischargeActivities;
@@ -80,6 +79,8 @@ namespace SxSPro.Mappers
             SetMappedVerticals(dischargeSection, meterCalibration, stations);
 
             SetChannelObservations(dischargeSection, sxsSummary, unitSystem);
+
+            dischargeSection.MeterCalibration = meterCalibration;
 
             dischargeActivity.ChannelMeasurements.Add(dischargeSection);
         }

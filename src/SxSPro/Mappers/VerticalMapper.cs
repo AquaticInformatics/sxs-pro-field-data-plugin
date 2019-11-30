@@ -37,8 +37,7 @@ namespace SxSPro.Mappers
             return new Vertical
             {
                 Segment = GetSegment(station),
-                //TODO: may need to look at ice thickness to determine which condition:
-                MeasurementConditionData = new OpenWaterData(),
+                MeasurementConditionData = CreateMeasurementCondition(station),
                 TaglinePosition = station.Dist.AsDouble(),
                 SequenceNumber = int.Parse(station.id),
                 MeasurementTime = GetMeasurementTime(station, lastStationId),
@@ -60,6 +59,23 @@ namespace SxSPro.Mappers
                 Width = station.Width.AsDouble(),
                 TotalDischargePortion = station.Percent_Tot.AsDouble()
             };
+        }
+
+        private MeasurementConditionData CreateMeasurementCondition(XmlRootSummaryStation station)
+        {
+            var isIce = station.WS_Btm_Of_Ice != 0
+                || station.WS_Btm_Of_Slush != 0
+                || station.Solid_Ice_Thickness != 0;
+
+            if (isIce)
+                return new IceCoveredData
+                {
+                    IceThickness = station.Solid_Ice_Thickness.AsDouble(),
+                    WaterSurfaceToBottomOfIce = station.WS_Btm_Of_Ice.AsDouble(),
+                    WaterSurfaceToBottomOfSlush = station.WS_Btm_Of_Slush.AsDouble()
+                };
+
+            return new OpenWaterData();
         }
 
         private DateTimeOffset? GetMeasurementTime(XmlRootSummaryStation station, string lastStationId)
