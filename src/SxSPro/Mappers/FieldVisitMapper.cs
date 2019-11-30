@@ -11,9 +11,12 @@ namespace SxSPro.Mappers
     {
         private readonly XmlRootSummaryWinRiver_II_Section_by_Section_Summary _summary;
         private readonly LocationInfo _location;
+        private readonly Config _config;
 
-        public FieldVisitMapper(XmlRootSummary summary, LocationInfo location)
+        public FieldVisitMapper(Config config, XmlRootSummary summary, LocationInfo location)
         {
+            _config = config ?? throw new ArgumentNullException(nameof(config));
+
             _summary = summary?.WinRiver_II_Section_by_Section_Summary ?? 
                 throw new ArgumentNullException(nameof(summary));
 
@@ -32,7 +35,13 @@ namespace SxSPro.Mappers
 
         private DateTimeInterval GetVisitTimePeriod()
         {
-            var date = DateTime.ParseExact(_summary.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            if (!DateTime.TryParseExact(_summary.Date, _config.DateFormats, CultureInfo.InvariantCulture,
+                    DateTimeStyles.NoCurrentDateDefault | DateTimeStyles.AllowWhiteSpaces, out var dateTime) || dateTime.Date == DateTime.MinValue)
+            {
+                throw new ArgumentException($"'{_summary.Date}' is an invalid date. Supported patterns are: {string.Join(", ", _config.DateFormats)}");
+            }
+
+            var date = dateTime.Date;
 
             var times = _summary
                 .Start_End_Time
@@ -46,17 +55,8 @@ namespace SxSPro.Mappers
             var startTime = times.First();
             var endTime = times.Last();
 
-            var start = new DateTimeOffset(date.Year, date.Month, date.Day,
-                startTime.Hour,
-                startTime.Minute,
-                startTime.Second,
-                _location.UtcOffset);
-
-            var end = new DateTimeOffset(date.Year, date.Month, date.Day,
-                endTime.Hour,
-                endTime.Minute,
-                endTime.Second,
-                _location.UtcOffset);
+            var start = new DateTimeOffset(date, _location.UtcOffset).Add(startTime);
+            var end = new DateTimeOffset(date, _location.UtcOffset).Add(endTime);
 
             if (end < start)
             {
@@ -69,21 +69,14 @@ namespace SxSPro.Mappers
 
         private static readonly char[] TimeSeparators = {'/'};
 
-        private DateTime ParseTime(string text)
+        private TimeSpan ParseTime(string text)
         {
-            if (DateTime.TryParseExact(text, SupportedTimeFormats, CultureInfo.InvariantCulture,
-                DateTimeStyles.AllowWhiteSpaces, out var dateTime))
-                return dateTime;
+            if (!DateTime.TryParseExact(text, _config.TimeFormats, CultureInfo.InvariantCulture, DateTimeStyles.AllowWhiteSpaces, out var dateTime))
+            {
+                throw new ArgumentException($"'{text}' is an invalid time. Supported patterns are: {string.Join(", ", _config.TimeFormats)}");
+            }
 
-            throw new ArgumentException($"Invalid time: '{text}'");
+            return dateTime.TimeOfDay;
         }
-
-        private static readonly string[] SupportedTimeFormats =
-        {
-            "H:m:s",
-            "H:m",
-            "h:m:s tt",
-            "h:m tt",
-        };
     }
 }

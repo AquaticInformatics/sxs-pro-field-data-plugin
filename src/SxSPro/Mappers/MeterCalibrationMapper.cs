@@ -15,7 +15,7 @@ namespace SxSPro.Mappers
                 SerialNumber = sxsSummary.ADCP_Serial_No,
                 MeterType = MeterType.Adcp,
                 SoftwareVersion = sxsSummary.Software_Version,
-                Model = sxsSummary.Instrument,
+                Model = sxsSummary.Instrument?.Trim(),
                 Configuration = ComposeConfiguration(sxsSummary)
             };
         }

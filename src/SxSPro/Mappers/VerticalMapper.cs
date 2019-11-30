@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.ChannelMeasurements;
@@ -26,21 +27,20 @@ namespace SxSPro.Mappers
             if (stations == null || !stations.Any())
                 return new List<Vertical>();
 
-            var stationsTotal = stations.Length;
+            var lastStationId = $"{stations.Length}";
 
-            return stations.Select(st => Map(st,stationsTotal));
+            return stations.Select(st => Map(st, lastStationId));
         }
 
-        private Vertical Map(XmlRootSummaryStation station, int stationsTotal)
+        private Vertical Map(XmlRootSummaryStation station, string lastStationId)
         {
             return new Vertical
             {
                 Segment = GetSegment(station),
-                //TODO: may need to look at ice thickness to determine which condition:
-                MeasurementConditionData = new OpenWaterData(),
+                MeasurementConditionData = CreateMeasurementCondition(station),
                 TaglinePosition = station.Dist.AsDouble(),
                 SequenceNumber = int.Parse(station.id),
-                MeasurementTime = GetMeasurementTime(station, stationsTotal),
+                MeasurementTime = GetMeasurementTime(station, lastStationId),
                 VerticalType = VerticalType.MidRiver, //TODO: is this correct?
                 EffectiveDepth = station.Depth.AsDouble(),
                 VelocityObservation = GetVelocityObservation(station),
@@ -61,39 +61,50 @@ namespace SxSPro.Mappers
             };
         }
 
-        private DateTimeOffset? GetMeasurementTime(XmlRootSummaryStation station, int stationTotal)
+        private MeasurementConditionData CreateMeasurementCondition(XmlRootSummaryStation station)
+        {
+            var isIce = station.WS_Btm_Of_Ice != 0
+                || station.WS_Btm_Of_Slush != 0
+                || station.Solid_Ice_Thickness != 0;
+
+            if (isIce)
+                return new IceCoveredData
+                {
+                    IceThickness = station.Solid_Ice_Thickness.AsDouble(),
+                    WaterSurfaceToBottomOfIce = station.WS_Btm_Of_Ice.AsDouble(),
+                    WaterSurfaceToBottomOfSlush = station.WS_Btm_Of_Slush.AsDouble()
+                };
+
+            return new OpenWaterData();
+        }
+
+        private DateTimeOffset? GetMeasurementTime(XmlRootSummaryStation station, string lastStationId)
         {
             //station.Start_T is "-" at the first and last station. It should be safe to assume
             //that first has the start measurement time and last has the end time.
-            if (station.id == "1")
+
+            var timeText = station.Start_T?.Trim();
+
+            if (string.IsNullOrEmpty(timeText) || timeText == "-")
             {
-                return _measurementInterval.Start;
+                if (station.id == "1")
+                {
+                    return _measurementInterval.Start;
+                }
+
+                if (station.id == lastStationId)
+                {
+                    return _measurementInterval.End;
+                }
+
+                throw new ArgumentException($"'{station.Start_T}' is not a valid start time for station ID={station.id}");
             }
 
-            if (station.id == $"{stationTotal}")
-            {
-                return _measurementInterval.End;
-            }
+            if (!DateTime.TryParse(timeText, CultureInfo.InvariantCulture, DateTimeStyles.NoCurrentDateDefault, out var dateTime) || dateTime.Date != DateTime.MinValue)
+                throw new ArgumentException($"'{station.Start_T}' is not a valid start time for station ID={station.id}");
 
-            var times = ParseTimeParts(station);
-
-            var hour = Int32.Parse(times[0]);
-            var minute = Int32.Parse(times[1]);
-            var startDate = _measurementInterval.Start.Date;
-
-            return new DateTimeOffset(startDate.Year, startDate.Month, startDate.Day,
-                hour, minute, 0, _measurementInterval.Start.Offset);
-        }
-
-        private static string[] ParseTimeParts(XmlRootSummaryStation station)
-        {
-            var times = station.Start_T.Split(':');
-            if (times.Length != 2)
-            {
-                throw new ArgumentException($"Invalid Station.Start_T value {station.Start_T}.");
-            }
-
-            return times;
+            return new DateTimeOffset(_measurementInterval.Start.Date, _measurementInterval.Start.Offset)
+                .Add(dateTime.TimeOfDay);
         }
 
         private VelocityObservation GetVelocityObservation(XmlRootSummaryStation station)

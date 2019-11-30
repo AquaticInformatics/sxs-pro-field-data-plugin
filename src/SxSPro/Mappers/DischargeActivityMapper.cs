@@ -15,6 +15,8 @@ namespace SxSPro.Mappers
     {
         private readonly FieldVisitInfo _fieldVisitInfo;
 
+        public bool IsMetric { get; private set; }
+
         public DischargeActivityMapper(FieldVisitInfo fieldVisitInfo)
         {
             _fieldVisitInfo = fieldVisitInfo;
@@ -23,7 +25,10 @@ namespace SxSPro.Mappers
         public DischargeActivity Map(XmlRootSummary xmlRootSummary)
         {
             var sxsSummary = xmlRootSummary.WinRiver_II_Section_by_Section_Summary;
-            var unitSystem = sxsSummary.Units_of_Measure == "Metric"
+
+            IsMetric = sxsSummary.Units_of_Measure == "Metric";
+
+            var unitSystem = IsMetric
                 ? Units.MetricUnitSystem
                 : Units.ImperialUnitSystem;
 
@@ -44,6 +49,7 @@ namespace SxSPro.Mappers
 
             dischargeActivity.Comments = sxsSummary.Comments;
             dischargeActivity.Party = _fieldVisitInfo.Party;
+            dischargeActivity.MeasurementId = !string.IsNullOrWhiteSpace(sxsSummary.Meas_No) ? sxsSummary.Meas_No.Trim() : null;
 
             //Mean gage height: 
             AddMeanGageHeight(dischargeActivity, sxsSummary.Stage, unitSystem);
@@ -74,6 +80,8 @@ namespace SxSPro.Mappers
 
             SetChannelObservations(dischargeSection, sxsSummary, unitSystem);
 
+            dischargeSection.MeterCalibration = meterCalibration;
+
             dischargeActivity.ChannelMeasurements.Add(dischargeSection);
         }
 
@@ -86,6 +94,7 @@ namespace SxSPro.Mappers
 
             //Party: 
             manualGaugingDischarge.Party = dischargeActivity.Party;
+            manualGaugingDischarge.Comments = dischargeActivity.Comments;
 
             //Discharge method default to mid-section:
             var dischargeMethod = sxsSummary.Q_Method == "Mean-section"
@@ -93,6 +102,9 @@ namespace SxSPro.Mappers
                 : DischargeMethodType.MidSection;
 
             manualGaugingDischarge.DischargeMethod = dischargeMethod;
+            manualGaugingDischarge.StartPoint = sxsSummary.Begin_Shore == "Left"
+                ? StartPointType.LeftEdgeOfWater
+                : StartPointType.RightEdgeOfWater;
 
             return manualGaugingDischarge;
         }
@@ -105,7 +117,6 @@ namespace SxSPro.Mappers
             dischargeSection.AreaValue = sxsSummary.Meas_Area.AsDouble();
 
             //Width:
-            
             dischargeSection.WidthValue = sxsSummary.Meas_Width.AsDouble();
 
             //Velocity:
