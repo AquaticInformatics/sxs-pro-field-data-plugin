@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using FieldDataPluginFramework;
 using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.Results;
@@ -31,7 +33,8 @@ namespace SxSPro
 
         private FieldVisitInfo AppendMappedFieldVisitInfo(XmlRootSummary summary, LocationInfo locationInfo)
         {
-            var mapper = new FieldVisitMapper(summary, _location);
+            var config = new ConfigLoader().Load(GetConfigurationPath());
+            var mapper = new FieldVisitMapper(config, summary, _location);
             var fieldVisitDetails = mapper.MapFieldVisitDetails();
 
             _logger.Info($"Successfully parsed one visit '{fieldVisitDetails.FieldVisitPeriod}' " +
@@ -40,6 +43,11 @@ namespace SxSPro
             return _appender.AddFieldVisit(locationInfo, fieldVisitDetails);
         }
 
+        private string GetConfigurationPath()
+        {
+            // ReSharper disable once AssignNullToNotNullAttribute
+            return Path.Combine(Path.GetDirectoryName(GetType().Assembly.Location), $"{nameof(Config)}.json");
+        }
         private void AppendMappedMeasurements(XmlRootSummary xmlRootSummary, FieldVisitInfo fieldVisitInfo)
         {
             var dischargeActivityMapper = new DischargeActivityMapper(fieldVisitInfo);

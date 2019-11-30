@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoRoot", "RepoRoot", "{67
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{1AD01D42-F42F-4403-AEA9-0079CF38FF61}"
+	ProjectSection(SolutionItems) = preProject
+		..\data\SxSProDischargeSummary.xml = ..\data\SxSProDischargeSummary.xml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1AD01D42-F42F-4403-AEA9-0079CF38FF61} = {67D86BD9-E248-4972-BC34-6827FB601BFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5ED429BB-6757-4D5E-A398-83BCC633043D}

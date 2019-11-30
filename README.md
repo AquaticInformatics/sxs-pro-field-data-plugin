@@ -7,12 +7,29 @@ An AQTS field data plugin for AQTS 2018.2-or-newer systems, which can read disch
 ## Want to install this plugin?
 
 - Download the latest release of the plugin [here](../../releases/latest)
-- Install it using the [FieldVisitPluginTool](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/FieldDataPluginTool)
+- Install it on AQTS 2019.2-or-newer via the System Configuration page
+- Install it on AQTS 2019.1-or-older using the [FieldVisitPluginTool](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/FieldDataPluginTool)
 
 ## Requirements for building the plugin from source
 
 - Requires Visual Studio 2017 (Community Edition is fine)
 - .NET 4.7 runtime
+
+## Configuring the plugin
+
+The format of SxS Pro XML files consumed by this plugin can vary from based on the SxS Pro user's regional settings for times and dates.
+
+The SxS Pro software will generate different XML for US users vs. UK users.
+
+Consider April Fool's Day, 2019 (an example date which ironically exposes the foolish bug).
+
+US XML files will contain `<Date>4/1/2019</Date>`, but XML files saved in Great Britain wil contain `<Date>01/04/2019</Date>`.
+
+Since the plugin runs on the AQTS server, it does not know which date format to expect, so the plugin must be configured with what to expect.
+
+Should it prefer month/day/year (US-style) or day/month/year (UK-style)?
+
+See the [Configuration page](src/SxSPro/Readme.md) for details.
 
 ## Building the plugin
 

@@ -1,0 +1,4 @@
+﻿{
+  "DateFormats": [ "M/d/yyyy", "M-d-yyyy", "yyyy/M/d", "yyyy-M-d" ],
+  "TimeFormats": [ "h:m:s tt", "h:m tt", "H:m:s", "H:m" ]
+}
