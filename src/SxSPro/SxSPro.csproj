@@ -51,6 +51,7 @@
     <Compile Include="ConfigLoader.cs" />
     <Compile Include="Helper\DecimalExtensions.cs" />
     <Compile Include="Mappers\MeterCalibrationMapper.cs" />
+    <Compile Include="Mappers\ReadingsMapper.cs" />
     <Compile Include="Mappers\VerticalMapper.cs" />
     <Compile Include="Mappers\DischargeActivityMapper.cs" />
     <Compile Include="Mappers\FieldVisitMapper.cs" />

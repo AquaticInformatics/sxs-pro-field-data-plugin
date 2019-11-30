@@ -16,6 +16,8 @@ namespace SxSPro.Mappers
     {
         private readonly FieldVisitInfo _fieldVisitInfo;
 
+        public bool IsMetric { get; private set; }
+
         public DischargeActivityMapper(FieldVisitInfo fieldVisitInfo)
         {
             _fieldVisitInfo = fieldVisitInfo;
@@ -24,7 +26,10 @@ namespace SxSPro.Mappers
         public DischargeActivity Map(XmlRootSummary xmlRootSummary)
         {
             var sxsSummary = xmlRootSummary.WinRiver_II_Section_by_Section_Summary;
-            var unitSystem = sxsSummary.Units_of_Measure == "Metric"
+
+            IsMetric = sxsSummary.Units_of_Measure == "Metric";
+
+            var unitSystem = IsMetric
                 ? Units.MetricUnitSystem
                 : Units.ImperialUnitSystem;
 

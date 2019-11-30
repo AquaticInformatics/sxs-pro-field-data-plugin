@@ -48,11 +48,18 @@ namespace SxSPro
             // ReSharper disable once AssignNullToNotNullAttribute
             return Path.Combine(Path.GetDirectoryName(GetType().Assembly.Location), $"{nameof(Config)}.json");
         }
+
         private void AppendMappedMeasurements(XmlRootSummary xmlRootSummary, FieldVisitInfo fieldVisitInfo)
         {
             var dischargeActivityMapper = new DischargeActivityMapper(fieldVisitInfo);
 
             _appender.AddDischargeActivity(fieldVisitInfo, dischargeActivityMapper.Map(xmlRootSummary));
+
+            var readingsMapper = new ReadingsMapper(fieldVisitInfo);
+            foreach (var reading in readingsMapper.Map(xmlRootSummary, dischargeActivityMapper.IsMetric))
+            {
+                _appender.AddReading(fieldVisitInfo, reading);
+            }
         }
     }
 }
