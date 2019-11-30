@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SxSPro</RootNamespace>
     <AssemblyName>SxSPro</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -35,8 +35,8 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FieldDataPluginFramework, Version=1.2.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\Aquarius.FieldDataFramework.18.2.0\lib\net47\FieldDataPluginFramework.dll</HintPath>
+    <Reference Include="FieldDataPluginFramework, Version=2.3.0.0, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\Aquarius.FieldDataFramework.19.2.2\lib\net472\FieldDataPluginFramework.dll</HintPath>
     </Reference>
     <Reference Include="ServiceStack.Text, Version=4.5.12.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ServiceStack.Text.4.5.12\lib\net45\ServiceStack.Text.dll</HintPath>
@@ -79,7 +79,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.18.2.0\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin
-$(SolutionDir)packages\Aquarius.FieldDataFramework.18.2.0\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\SxSProDischargeSummary.xml</PostBuildEvent>
+    <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.19.2.2\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin
+$(SolutionDir)packages\Aquarius.FieldDataFramework.19.2.2\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\SxSProDischargeSummary.xml</PostBuildEvent>
   </PropertyGroup>
 </Project>
