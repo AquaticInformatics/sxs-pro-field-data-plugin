@@ -1,4 +1,5 @@
-﻿using FieldDataPluginFramework.Context;
+﻿using System;
+using FieldDataPluginFramework.Context;
 using FieldDataPluginFramework.DataModel;
 using FieldDataPluginFramework.DataModel.ChannelMeasurements;
 using FieldDataPluginFramework.DataModel.DischargeActivities;
@@ -44,6 +45,7 @@ namespace SxSPro.Mappers
 
             dischargeActivity.Comments = sxsSummary.Comments;
             dischargeActivity.Party = _fieldVisitInfo.Party;
+            dischargeActivity.MeasurementId = !string.IsNullOrWhiteSpace(sxsSummary.Meas_No) ? sxsSummary.Meas_No.Trim() : null;
 
             //Mean gage height: 
             AddMeanGageHeight(dischargeActivity, sxsSummary.Stage, unitSystem);
@@ -86,6 +88,7 @@ namespace SxSPro.Mappers
 
             //Party: 
             manualGaugingDischarge.Party = dischargeActivity.Party;
+            manualGaugingDischarge.Comments = dischargeActivity.Comments;
 
             //Discharge method default to mid-section:
             var dischargeMethod = sxsSummary.Q_Method == "Mean-section"
@@ -93,6 +96,9 @@ namespace SxSPro.Mappers
                 : DischargeMethodType.MidSection;
 
             manualGaugingDischarge.DischargeMethod = dischargeMethod;
+            manualGaugingDischarge.StartPoint = sxsSummary.Begin_Shore == "Left"
+                ? StartPointType.LeftEdgeOfWater
+                : StartPointType.RightEdgeOfWater;
 
             return manualGaugingDischarge;
         }
@@ -105,7 +111,6 @@ namespace SxSPro.Mappers
             dischargeSection.AreaValue = sxsSummary.Meas_Area.AsDouble();
 
             //Width:
-            
             dischargeSection.WidthValue = sxsSummary.Meas_Width.AsDouble();
 
             //Velocity:
