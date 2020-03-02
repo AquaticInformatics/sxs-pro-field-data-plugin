@@ -40,7 +40,7 @@ See the [Configuration page](src/SxSPro/Readme.md) for details.
 
 Use the included `PluginTester.exe` tool from the `Aquarius.FieldDataFramework` package to test your plugin logic on the sample files.
 
-1. Open the HydstraGauging project's **Properties** page
+1. Open the SxSPro project's **Properties** page
 2. Select the **Debug** tab
 3. Select **Start external program:** as the start action and browse to `"src\packages\Aquarius.FieldDataFramework.18.4.2\tools\PluginTester.exe`
 4. Enter the **Command line arguments:** to launch your plugin
