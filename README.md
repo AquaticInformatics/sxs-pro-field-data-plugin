@@ -2,13 +2,20 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/esuabwytd0w2wvkr/branch/master?svg=true)](https://ci.appveyor.com/project/SystemsAdministrator/sxs-pro-field-data-plugin/branch/master)
 
-An AQTS field data plugin for AQTS 2018.2-or-newer systems, which can read discharge summary XML measurements from Teledyne SxS Pro software.
+An AQTS field data plugin for AQTS 2019.2-or-newer systems, which can read discharge summary XML measurements from Teledyne SxS Pro software.
 
 ## Want to install this plugin?
 
-- Download the latest release of the plugin [here](../../releases/latest)
-- Install it on AQTS 2019.2-or-newer via the System Configuration page
-- Install it on AQTS 2019.1-or-older using the [FieldVisitPluginTool](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/FieldDataPluginTool)
+- Install the plugin using the System Config page on your AQTS app server.
+
+### Plugin Compatibility Matrix
+
+Choose the appropriate version of the plugin for your AQTS app server.
+
+| AQTS Version | Latest compatible plugin Version |
+| --- | --- |
+| AQTS 2020.2 | [v20.2.0](https://github.com/AquaticInformatics/sxs-pro-field-data-plugin/releases/download/v20.2.0/SxSPro.plugin) |
+| AQTS 2020.1<br/>AQTS 2019.4<br/>AQTS 2019.3<br/>AQTS 2019.2 | [v19.2.1](https://github.com/AquaticInformatics/sxs-pro-field-data-plugin/releases/download/v19.2.1/SxSPro.plugin) |
 
 ## Requirements for building the plugin from source
 
@@ -56,7 +63,3 @@ The `/Plugin=` argument can be the filename of your plugin assembly, without any
 7. Now you're debugging your plugin!
 
 See the [PluginTester](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/PluginTester) documentation for more details.
-
-## Installation of the plugin
-
-Use the [FieldDataPluginTool](https://github.com/AquaticInformatics/aquarius-field-data-framework/tree/master/src/FieldDataPluginTool) to install the plugin on your AQTS app server.

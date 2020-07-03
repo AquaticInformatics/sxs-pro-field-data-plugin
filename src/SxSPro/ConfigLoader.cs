@@ -1,27 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
+using FieldDataPluginFramework.Results;
 using ServiceStack;
 
 namespace SxSPro
 {
     public class ConfigLoader
     {
-        public Config Load(string path)
+        private Dictionary<string,string> Settings { get; }
+
+        public ConfigLoader(IFieldDataResultsAppender appender)
         {
-            if (!File.Exists(path))
+            Settings = appender.GetPluginConfigurations();
+        }
+
+        public Config Load()
+        {
+            if (!Settings.TryGetValue(nameof(Config), out var jsonText) || string.IsNullOrWhiteSpace(jsonText))
                 return Sanitize(new Config());
 
             try
             {
-                return Sanitize(File.ReadAllText(path)
-                    .FromJson<Config>());
+                return Sanitize(jsonText.FromJson<Config>());
             }
             catch (SerializationException exception)
             {
-                throw new ArgumentException($"'{path}' is not a valid Config JSON file.", exception);
+                throw new ArgumentException($"Invalid Config JSON:\b{jsonText}", exception);
             }
         }
 

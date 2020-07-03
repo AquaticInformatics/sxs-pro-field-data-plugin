@@ -33,7 +33,7 @@ namespace SxSPro
 
         private FieldVisitInfo AppendMappedFieldVisitInfo(XmlRootSummary summary, LocationInfo locationInfo)
         {
-            var config = new ConfigLoader().Load(GetConfigurationPath());
+            var config = new ConfigLoader(_appender).Load();
             var mapper = new FieldVisitMapper(config, summary, _location);
             var fieldVisitDetails = mapper.MapFieldVisitDetails();
 
@@ -41,12 +41,6 @@ namespace SxSPro
                          $"for location '{locationInfo.LocationIdentifier}'");
 
             return _appender.AddFieldVisit(locationInfo, fieldVisitDetails);
-        }
-
-        private string GetConfigurationPath()
-        {
-            // ReSharper disable once AssignNullToNotNullAttribute
-            return Path.Combine(Path.GetDirectoryName(GetType().Assembly.Location), $"{nameof(Config)}.json");
         }
 
         private void AppendMappedMeasurements(XmlRootSummary xmlRootSummary, FieldVisitInfo fieldVisitInfo)
