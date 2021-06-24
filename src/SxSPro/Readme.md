@@ -59,13 +59,13 @@ In this example we can tell from `<Printed_Date>` that a "M/d/yyyy" format was u
 
 ## The `Config.json` file stores the plugin's configuration
 
-The plugin can be configured via a [`Config.json`](./src/SxSPro/Config.json) JSON document, to control the date and time formats used by your organization.
+The plugin can be configured via a [`Config.json`](./Config.json) JSON document, to control the date and time formats used by your organization.
 
 The JSON configuration is stored in different places, depending on the version of the plugin.
 
 | Version | Configuration location |
 | --- | --- |
-| 20.2.x | Use the Settings page of the System Config app to change the settings.<br/><br/>**Group**: `FieldDataPluginConfig-SxSPro`<br/>**Key**: `Config`<br/>**Value**: The entire contents of the Config.json file. If blank or omitted, the plugin's default [`Config.json`](./src/SxSPro/Config.json) is used. |
+| 20.2.x | Use the Settings page of the System Config app to change the settings.<br/><br/>**Group**: `FieldDataPluginConfig-SxSPro`<br/>**Key**: `Config`<br/>**Value**: The entire contents of the Config.json file. If blank or omitted, the plugin's default [`Config.json`](./Config.json) is used. |
 | 19.2.x | Read from the `Config.json` file in the plugin folder, at `%ProgramData%\Aquatic Informatics\AQUARIUS Server\FieldDataPlugins\SxSPro\Config.json` |
 
 This JSON document is reloaded each time a SxS file is uploaded to AQTS for parsing. Updates to the setting will take effect on the next SxS file parsed.
