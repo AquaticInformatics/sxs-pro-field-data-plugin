@@ -42,7 +42,8 @@ namespace SxSPro.Mappers
                 SequenceNumber = int.Parse(station.id),
                 MeasurementTime = GetMeasurementTime(station, lastStationId),
                 VerticalType = VerticalType.MidRiver, //TODO: is this correct?
-                EffectiveDepth = station.Depth.AsDouble(),
+                SoundedDepth = station.Depth.AsDouble(),
+                EffectiveDepth = station.Depth.AsDouble() - station.WS_Btm_Of_Slush.AsDouble(),
                 VelocityObservation = GetVelocityObservation(station),
                 FlowDirection = FlowDirectionType.Normal,
                 Comments = AddUnMappedFieldsToVerticalComments(station)
