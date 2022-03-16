@@ -86,6 +86,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Readme.md" />
+    <None Include="regenerateFromSchema.cmd" />
     <None Include="Schema\SxSDischargeSummary.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -96,6 +97,6 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>$(SolutionDir)packages\Aquarius.FieldDataFramework.20.3.11\tools\PluginPackager.exe $(TargetPath) /OutputPath=$(ProjectDir)deploy\$(Configuration)\$(TargetName).plugin
-$(SolutionDir)packages\Aquarius.FieldDataFramework.20.3.11\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\SxSProDischargeSummary.xml</PostBuildEvent>
+$(SolutionDir)packages\Aquarius.FieldDataFramework.20.3.11\tools\PluginTester.exe /Plugin=$(TargetPath) /Data=$(SolutionDir)..\data\SxSProDischargeSummary.xml /Data=$(SolutionDir)..\data\MeasurementWithDepthFootnote.xml</PostBuildEvent>
   </PropertyGroup>
 </Project>

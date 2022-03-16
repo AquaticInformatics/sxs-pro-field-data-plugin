@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepoRoot", "RepoRoot", "{67
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{1AD01D42-F42F-4403-AEA9-0079CF38FF61}"
 	ProjectSection(SolutionItems) = preProject
+		..\data\MeasurementWithDepthFootnote.xml = ..\data\MeasurementWithDepthFootnote.xml
 		..\data\SxSProDischargeSummary.xml = ..\data\SxSProDischargeSummary.xml
 	EndProjectSection
 EndProject
