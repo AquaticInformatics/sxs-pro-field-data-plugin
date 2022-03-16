@@ -14,6 +14,7 @@ Choose the appropriate version of the plugin for your AQTS app server.
 
 | AQTS Version | Latest compatible plugin Version |
 | --- | --- |
+| AQTS 2021.4+<br/>...<br/>AQTS 2020.3 | [v21.1.2](https://github.com/AquaticInformatics/sxs-pro-field-data-plugin/releases/download/v21.1.2/SxSPro.plugin) |
 | AQTS 2020.2 | [v20.2.1](https://github.com/AquaticInformatics/sxs-pro-field-data-plugin/releases/download/v20.2.1/SxSPro.plugin) |
 | AQTS 2020.1<br/>AQTS 2019.4<br/>AQTS 2019.3<br/>AQTS 2019.2 | [v19.2.1](https://github.com/AquaticInformatics/sxs-pro-field-data-plugin/releases/download/v19.2.1/SxSPro.plugin) |
 

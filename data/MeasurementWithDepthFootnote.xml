@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XmlRoot>
+	<Summary>
+		<WinRiver_II_Section_by_Section_Summary>
+			<Site_Name/>
+			<Printed_Date>01/21/2022</Printed_Date>
+			<Station_No>SomeLocation</Station_No>
+			<Air_Temp/>
+			<Water_Temp/>
+			<River_Name/>
+			<Location/>
+			<Date>01/20/2022</Date>
+			<Start_End_Time>10:19:50 AM/10:25:15 AM</Start_End_Time>
+			<Party/>
+			<Software_Ver>1.19.00.06</Software_Ver>
+			<Units_of_Measure>Metric</Units_of_Measure>
+			<Meas_No/>
+			<No_Stations>8</No_Stations>
+			<Q_Method>Mean-section</Q_Method>
+			<Vel_Method>Magnitude</Vel_Method>
+			<Reference>ADCP</Reference>
+			<Left_Coeff>0.707</Left_Coeff>
+			<Right_Coeff>0.707</Right_Coeff>
+			<Duration>41 s</Duration>
+			<Instrument>StreamPro 2 MHz</Instrument>
+			<Firmware_Version>31.13</Firmware_Version>
+			<Water_Mode>12</Water_Mode>
+			<ADCP_Depth>0.050*</ADCP_Depth>
+			<Blank>0.030</Blank>
+			<Num_Cells>30</Num_Cells>
+			<Cell_Size>0.020</Cell_Size>
+			<Total_Q>0.796</Total_Q>
+			<Meas_Area>2.66</Meas_Area>
+			<Mean_Vel>0.300</Mean_Vel>
+			<Meas_Width>7.00</Meas_Width>
+			<Max_Vel>0.461</Max_Vel>
+			<Max_Depth>0.456</Max_Depth>
+			<Quality_Control>6.85</Quality_Control>
+			<Meas_Angle>0.000</Meas_Angle>
+			<Stage>0.000</Stage>
+			<Rated_Q>0.000</Rated_Q>
+			<Begin_Shore>Left</Begin_Shore>
+			<ADCP_Serial_No>766</ADCP_Serial_No>
+			<RawFileName>LowerOa_20220120.sxs.pd0</RawFileName>
+			<ConfigFileName>LowerOa.sxs.mmt</ConfigFileName>
+			<Software_Version>1.19</Software_Version>
+			<System_Frequency>2000</System_Frequency>
+			<Comments/>
+			<FlowType>Normal (Power/Power)</FlowType>
+			<FootNote>* - value not consistent for all verticals</FootNote>
+			<ContourFile>20220120101950.png</ContourFile>
+			<Total_Width>7.00</Total_Width>
+			<Total_Area>2.66</Total_Area>
+			<Total_Slush_Area>0.000</Total_Slush_Area>
+			<TotalPerc__Slush>0.000</TotalPerc__Slush>
+			<Total_Start_T>00:05</Total_Start_T>
+			<Mean_Depth>0.332</Mean_Depth>
+			<Mean_CV>23.8</Mean_CV>
+			<Mean_Avg_V>0.300</Mean_Avg_V>
+			<Mean_Dir_V>152</Mean_Dir_V>
+			<Mean_ADCP_Depth>0.035</Mean_ADCP_Depth>
+			<Mean_Solid_Ice_Thickness>0.000</Mean_Solid_Ice_Thickness>
+			<Mean_WS_Btm_Of_Ice>0.000</Mean_WS_Btm_Of_Ice>
+			<Mean_WS_Btm_Of_Slush>0.000</Mean_WS_Btm_Of_Slush>
+			<Mean_Meas_T>40.6</Mean_Meas_T>
+			<Mean_Ang_Cf>1.00</Mean_Ang_Cf>
+		</WinRiver_II_Section_by_Section_Summary>
+		<Station id="1">
+			<Stn_Q>0.000</Stn_Q>
+			<Percent_Tot>0.000</Percent_Tot>
+			<Start_T>-</Start_T>
+			<Meas_T>0.000</Meas_T>
+			<Percent_Good>0.000</Percent_Good>
+			<Avg_V>0.000</Avg_V>
+			<CV>0.000</CV>
+			<Dir_V>0.000</Dir_V>
+			<Dist>0.000</Dist>
+			<Depth>0.000</Depth>
+			<Width>0.000</Width>
+			<Area>0.000</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.000</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="2">
+			<Stn_Q>0.051</Stn_Q>
+			<Percent_Tot>6.47</Percent_Tot>
+			<Start_T>10:19 AM</Start_T>
+			<Meas_T>40.6</Meas_T>
+			<Percent_Good>100</Percent_Good>
+			<Avg_V>0.319</Avg_V>
+			<CV>24.3</CV>
+			<Dir_V>149</Dir_V>
+			<Dist>1.00</Dist>
+			<Depth>0.456</Depth>
+			<Width>1.00</Width>
+			<Area>0.228</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.050</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="3">
+			<Stn_Q>0.147</Stn_Q>
+			<Percent_Tot>18.4</Percent_Tot>
+			<Start_T>10:20 AM</Start_T>
+			<Meas_T>40.6</Meas_T>
+			<Percent_Good>100</Percent_Good>
+			<Avg_V>0.337</Avg_V>
+			<CV>19.9</CV>
+			<Dir_V>150</Dir_V>
+			<Dist>2.00</Dist>
+			<Depth>0.438</Depth>
+			<Width>1.00</Width>
+			<Area>0.447</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.020</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="4">
+			<Stn_Q>0.139</Stn_Q>
+			<Percent_Tot>17.5</Percent_Tot>
+			<Start_T>10:21 AM</Start_T>
+			<Meas_T>40.9</Meas_T>
+			<Percent_Good>100</Percent_Good>
+			<Avg_V>0.303</Avg_V>
+			<CV>27.6</CV>
+			<Dir_V>156</Dir_V>
+			<Dist>3.00</Dist>
+			<Depth>0.433</Depth>
+			<Width>1.00</Width>
+			<Area>0.436</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.020</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="5">
+			<Stn_Q>0.142</Stn_Q>
+			<Percent_Tot>17.9</Percent_Tot>
+			<Start_T>10:22 AM</Start_T>
+			<Meas_T>40.8</Meas_T>
+			<Percent_Good>100</Percent_Good>
+			<Avg_V>0.338</Avg_V>
+			<CV>21.2</CV>
+			<Dir_V>155</Dir_V>
+			<Dist>4.00</Dist>
+			<Depth>0.454</Depth>
+			<Width>1.00</Width>
+			<Area>0.443</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.050</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="6">
+			<Stn_Q>0.140</Stn_Q>
+			<Percent_Tot>17.6</Percent_Tot>
+			<Start_T>10:23 AM</Start_T>
+			<Meas_T>40.3</Meas_T>
+			<Percent_Good>100</Percent_Good>
+			<Avg_V>0.280</Avg_V>
+			<CV>25.5</CV>
+			<Dir_V>149</Dir_V>
+			<Dist>5.00</Dist>
+			<Depth>0.451</Depth>
+			<Width>1.00</Width>
+			<Area>0.453</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.050</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="7">
+			<Stn_Q>0.129</Stn_Q>
+			<Percent_Tot>16.3</Percent_Tot>
+			<Start_T>10:24 AM</Start_T>
+			<Meas_T>40.5</Meas_T>
+			<Percent_Good>100</Percent_Good>
+			<Avg_V>0.312</Avg_V>
+			<CV>24.2</CV>
+			<Dir_V>155</Dir_V>
+			<Dist>6.00</Dist>
+			<Depth>0.423</Depth>
+			<Width>1.00</Width>
+			<Area>0.437</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.020</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+		<Station id="8">
+			<Stn_Q>0.047</Stn_Q>
+			<Percent_Tot>5.86</Percent_Tot>
+			<Start_T>-</Start_T>
+			<Meas_T>0.000</Meas_T>
+			<Percent_Good>0.000</Percent_Good>
+			<Avg_V>0.000</Avg_V>
+			<CV>0.000</CV>
+			<Dir_V>0.000</Dir_V>
+			<Dist>7.00</Dist>
+			<Depth>0.000</Depth>
+			<Width>1.00</Width>
+			<Area>0.211</Area>
+			<Ang_Cf>1.00</Ang_Cf>
+			<ADCP_Depth>0.000</ADCP_Depth>
+			<WS_Btm_Of_Slush>0.000</WS_Btm_Of_Slush>
+			<WS_Btm_Of_Ice>0.000</WS_Btm_Of_Ice>
+			<Solid_Ice_Thickness>0.000</Solid_Ice_Thickness>
+			<Slush_Area>0.000</Slush_Area>
+			<Perc_Slush>0.000</Perc_Slush>
+		</Station>
+	</Summary>
+</XmlRoot>

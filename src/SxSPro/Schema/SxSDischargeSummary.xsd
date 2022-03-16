@@ -33,7 +33,7 @@
                     <xs:element name="Instrument" type="xs:string" minOccurs="0" />
                     <xs:element name="Firmware_Version" type="xs:string" minOccurs="0" />
                     <xs:element name="Water_Mode" type="xs:string" minOccurs="0" />
-                    <xs:element name="ADCP_Depth" type="xs:decimal" minOccurs="0" />
+                    <xs:element name="ADCP_Depth" type="xs:string" minOccurs="0" />
                     <xs:element name="Blank" type="xs:decimal" minOccurs="0" />
                     <xs:element name="Num_Cells" type="xs:string" minOccurs="0" />
                     <xs:element name="Cell_Size" type="xs:string" minOccurs="0" />
